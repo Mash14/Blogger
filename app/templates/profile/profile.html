@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macro %}
+
+{% block content %}
+<div class="back">
+<div class="profile">
+<div class="container">
+    <h2 class="text-center"><strong>{{user.username|capitalize}}</strong></h2>
+    <div class="row">
+        <div class="col-md-6">
+            {% if user.profile_pic %}
+        
+            <img src="{{url_for('static',filename=user.profile_pic)}}" alt="" class="img">
+        
+            {%else%}
+        
+            <p>No profile picture</p>
+        
+            {% endif %}
+        
+            {% if user == current_user %}
+            <h4>Update Profile Picture</h4>
+            <form  action="{{url_for('main.update_pic',uname=user.username)}}" method="post" enctype = "multipart/form-data">
+        
+                <input type="file"  name="photo" class="form-control control" required>
+                <input type="submit" class="btn-submit">
+            
+            </form>
+            {% endif %}
+        </div>
+        
+        <div class="col-md-6">
+            <h3 class="text-center"><strong>Bio:</strong></h3>
+            {% if user.bio %}
+            <p class="text-center">{{user.bio}}</p>
+            {% if user == current_user %}
+            <a href="{{url_for('main.change_bio',uname = user.username)}}" ><button class="btn-submit" style="display: block; margin: auto;">Edit Bio</button></a>
+            {% endif %}
+            {% else %}
+            <p class="text-muted text-center text-white">{{user.username}} has no bio</p>
+            {% if user == current_user %}
+            <a href="{{url_for('main.update_profile',uname = user.username)}}" ><button class="btn-submit" style="display: block; margin: auto;">Create Bio</button></a>
+            {% endif %}
+            {% endif %}
+
+            
+        </div>
+        
+    </div>
+    <h3 class="text-center"><strong>Blogs</strong></h3>
+    {% if blogs %}
+    <div class="row" style="display: flex;">
+        {{macro.displayBlogList(blogs)}}
+    </div>
+    {% else %}
+    <p class="text-center text-white">You have no blogs</p>
+    {% endif %}
+</div>
+</div>
+</div>
+
+{% endblock %}

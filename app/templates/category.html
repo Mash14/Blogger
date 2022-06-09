@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macro %}
+
+{% block content %}
+
+<div class="container">
+    <h2 class="text-center"><strong>Category</strong></h2>
+    <p class="text-center">Found {{blogs|count}} blogs</p>
+    <div class="row" style="display: flex;">
+        {{macro.displayBlogList(blogs)}}
+    </div>
+</div>
+
+{% endblock %}
