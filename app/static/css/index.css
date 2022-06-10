@@ -23,11 +23,14 @@ header {
     color: #fff;
     cursor: pointer;
     /* display: flex; */
+    position: absolute; 
+    top: 500px; 
+    left: 650px;
     justify-content: center;
     align-items: center;
     bottom: 50px;
     display: block;
-    margin-top: 500px;
+    /* margin-top: 500px; */
     margin: auto;
     animation: movebtn 3s ease-in-out infinite;
     transition:all 0.5s ease-in-out;
@@ -57,16 +60,23 @@ header {
         transform: translateY(0px);
     }
 }
+.bot {
+    margin-top: 500px;
+} 
 .place {
-    right: 0;
-    top:0;
+    /* position: relative; */
+    /* justify-items: center; */
+     align-items: center; 
+     text-align: center;
+     display: block;
+     margin: auto;
 } 
 h1 {
     font-size: 58px;
 }
 .card {
     min-width: 20rem;
-    max-width:22rem;
+    max-width:25rem;
     height: 25rem;
     margin-top: 10px;
     margin-left: 10px;
@@ -117,9 +127,9 @@ i:hover {
 .new-post {
     border-radius: 5px;
     background-color: blue;
-    display: relative;
-    bottom: 0 !important; 
-    right: 0 !important;
+    /* position: fixed;
+    bottom: 20px; 
+    right: 20px; */
     padding: 12px 35px;
     font-size: 16px;
     font-weight: 500;
@@ -192,16 +202,55 @@ i:hover {
     color: white;
     text-align: center;
 }
+
+@media screen and (max-width:1115px) {
+    .bottom {
+        left: 500px;
+    }
+}
+
 @media screen and (max-width:1000px) {
     .vl {
         display: none;
+    }   
+    .bottom {
+        top: 500px; 
+        left: 450px;
     }
-    
 }
 
-@media screen and (max-width:767px) {
+@media screen and (max-width:800px) {
+    .card {
+        min-width: 25rem;
+    }
     .body {
         overflow-y: hidden;
         overflow: hidden;
+    }
+    .bottom {
+        top: 500px; 
+        left: 350px;
+    }
+    .new-post {
+        padding: 12px 12px;
+        border-radius: 5px;
+    }
+}
+
+@media screen and (max-width:520px) {
+    .new-post {
+        padding: 12px 12px;
+        border-radius: 10px;
+    }
+    .bottom {
+        top:500px;
+        left:200px;
+    }
+}
+
+@media screen and (max-width:300px) {
+    .bottom {
+        top:500px;
+        left:100px;
     }
 }
