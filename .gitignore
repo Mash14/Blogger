@@ -1,5 +1,4 @@
 virtual/
 # all compiled python files
 *.pyc
-config.py 
 start.sh
